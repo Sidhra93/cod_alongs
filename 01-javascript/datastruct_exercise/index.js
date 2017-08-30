@@ -56,7 +56,7 @@ var movies = [
   }
 ]
 
-for (var i = 0; i < movies.length; i++) {
+var movieInfo = function(){
   title = movies[i].title;
   duration = movies[i].duration;
   stars = "";
@@ -66,5 +66,6 @@ for (var i = 0; i < movies.length; i++) {
   console.log(title + " lasts for " + duration + " minutes. Stars: " + stars);
 }
 
-
-console.log("\n \n");
+for (var i = 0; i < movies.length; i++) {
+  movieInfo();
+}
