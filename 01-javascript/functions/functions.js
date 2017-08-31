@@ -27,6 +27,7 @@ calculateAge(2000, currentYear);
 
 
 //LIFETIME SUPPLY CALCULATOR
+console.log(" ");
 var maxAge = 70;
 
 var calculateSupply = function(age, amountPerDay){
@@ -40,6 +41,7 @@ console.log(calculateSupply(33, 56));
 
 
 //THE GEOMETRIZER
+console.log(" ");
 var calcCircumference = function(radius){
   var circ = 2 * (22/7) * radius;
   return "The circumference is " + circ.toFixed(2);
