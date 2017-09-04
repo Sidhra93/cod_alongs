@@ -1,0 +1,39 @@
+body{
+  margin: 0 50px;
+}
+
+header{
+  margin: 10px 0;
+}
+
+.date {
+  color: blue;
+}
+
+li {
+  display: inline;
+}
+
+img {
+  margin 20px;
+}
+
+p {
+  width: 1000px;
+  color: #858585;
+}
+
+h2 {
+  color: #858585;
+}
+
+a,
+.date {
+  text-decoration: none;
+  color: #488ac7;
+  font-weight: 500;
+}
+
+.logo{
+  border: 5px solid #d5d5d5;
+}
