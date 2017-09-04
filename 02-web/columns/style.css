@@ -1,0 +1,22 @@
+/*div {
+  display: inline-block;
+}*/
+
+/*.one {
+  width: 200px;
+  margin: 0 auto;
+}*/
+
+.container {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 400px;
+}
+
+img {
+  float: left;
+}
+
+span:hover {
+  color: red;
+}
