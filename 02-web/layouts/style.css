@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background: #efefef;
+}
+
+.container {
+  border: 2px solid black;
+}
+
+main  {
+  padding: 10px;
+  display: inline-block;
+  vertical-align: top;
+  /*float: left;*/
+  width: 70%;
+  background: white;
+}
+
+aside {
+  display: inline-block;
+  vertical-align: top;
+  /*float: left;*/
+  width: 28%;
+  background: mistyrose;
+}
+
+article {
+  background: tomato;
+}
+
+article footer {
+  border-top: 1px dashed black;
+  border-bottom: 1px solid black;
+}
