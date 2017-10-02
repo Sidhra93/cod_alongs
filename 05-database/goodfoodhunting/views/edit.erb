@@ -1,0 +1,6 @@
+<form action="/dishes/<%= @dish["id"] %>" method="post">
+  <input type="hidden" name="_method" value="put"> <!--This is how you send PUT and DELETE requests-->
+  <input type="text" name="name" value="<%= @dish["name"] %>">
+  <textarea name="image_url" cols="80" rows="5"><%= @dish["image_url"] %></textarea>
+  <button type="submit" name="button">Update</button>
+</form>
