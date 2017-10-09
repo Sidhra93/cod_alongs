@@ -6,6 +6,7 @@ require 'pry'
 require_relative 'db_config'
 require_relative 'models/dish'
 require_relative 'models/user'
+require_relative 'models/comment'
 
 enable :sessions
 
@@ -18,7 +19,6 @@ helpers do
   def logged_in?
     !!current_user
   end
-
 end
 
 get '/' do
@@ -48,6 +48,7 @@ end
 
 get '/dishes/:id' do
   @dish = Dish.find(params[:id])
+  @comments = Comment.where(dish_id: params[:id])
   erb :show
 end
 
@@ -99,4 +100,15 @@ delete '/session' do
   return 'go away' unless logged_in?
   session[:user_id] = nil
   redirect '/login'
+end
+
+#================== COMMENTS ===================
+
+post '/comments' do
+  comment = Comment.new
+  comment.body = params[:body]
+  comment.dish_id = params[:dish_id]
+  comment.user_id = current_user.id
+  comment.save
+  redirect "/dishes/#{params[:dish_id]}"
 end
