@@ -1,0 +1,18 @@
+rails s - to starts the server
+
+rails generate resource tip title:string
+
+rails db:create
+
+rails db:migrate
+
+
+routes > controller > views
+  first define the route in the routes.rb
+    eg: get '/about', to: 'pages#about'
+
+  Then define method in the specific controller(in this case the pages_controller.rb)
+    def about
+    end
+
+  Finally create a view of the same name in views folder in the folder of the same name of controller
