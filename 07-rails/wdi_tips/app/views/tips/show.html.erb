@@ -1,1 +1,22 @@
-<%= @tip.title %>
+<a href="/tips/<%= @tip.id %>/edit">edit</a>
+<h1><%= @tip.title %></h1>
+<%= raw @content_html %>
+
+<%= form_tag '/comments', method: 'post' do %>
+  <input type="hidden" name="tip_id" value="<%= @tip.id %>">
+  <label for="">Comment</label>
+  <textarea name="content"></textarea>
+  <button type="submit" name="button">Post Comment</button>
+<% end %>
+
+<!-- <form action="/comments" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="tip_id" value="<%= @tip.id %>">
+  <label for="">Comment</label>
+  <textarea name="content"></textarea>
+  <button type="submit" name="button">Post Comment</button>
+</form> -->
+
+<% @comments.each do |comment| %>
+  <p><%= comment.content %></p>
+<% end %>

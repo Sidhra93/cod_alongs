@@ -1,10 +1,14 @@
+rails new <app_name> -d=postgresql -T
+
 rails s - to starts the server
 
 rails generate resource tip title:string
 
 rails db:create
 
-rails db:migrate
+rails db:migrate (to run a migrate file in the db>migrate folder. it has to be run each time you create a migrate folder)
+
+rails g migration add_content_to_tips content:text (generate migration folder to add a column to a table)
 
 
 routes > controller > views
