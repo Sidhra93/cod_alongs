@@ -1,0 +1,51 @@
+<h1><%= @dish.name %></h1>
+
+<div class="comments">
+  <article>
+  <% @dish.comments.each do |comment| %>
+      <p><%= comment.body %></p>
+      <hr>
+  <% end %>
+</article>
+</div>
+
+<div class="status">
+
+</div>
+
+<form class="" action="/comments" method="post">
+  <label for="">Comment</label>
+  <textarea></textarea>
+  <button id="new-comment-btn">Post</button>
+</form>
+
+<script>
+
+  $('#new-comment-btn').on('click', function(event){
+    $('.status').text('posting comment.....');
+    event.preventDefault();
+    var options = {
+      url: '/api/comments',
+      method: 'post',
+      data: {
+        dish_id: <%= @dish.id %>,
+        body: $('textarea').val()
+      }
+    };
+    var appendComment = function(response){
+      // console.log(response);
+      $('.status').text('');
+      var $article = $('<article>')
+      var $p = $('<p>').text(response.body);
+      var $hr = $('<hr>');
+
+      $('article').append($p);
+      $('article').append($hr);
+
+      $('.comments').append($article);
+    }
+
+    $.ajax(options).done(appendComment);
+  });
+
+</script>

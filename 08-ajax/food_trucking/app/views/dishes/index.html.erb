@@ -1,0 +1,46 @@
+<div class="flex-container">
+  <% @dishes.each do |dish| %>
+  <div class="ui-card" data-dish-id="<%= dish.id %>">
+    <header class="content">
+      <div class="pull-right">14h</div>
+      <img class="avatar" src="http://via.placeholder.com/100x100" alt=""> Sidhra
+    </header>
+    <div class="image-wrapper">
+      <img src="http://via.placeholder.com/800x800">
+      <span class="star">&#9733;</span>
+    </div>
+    <div class="content">
+      <h2><a href="dishes/<%= dish.id %>"><%= dish.name %></a></h2>
+      <h3>at GA</h3>
+    </div>
+    <footer class="content">
+      <div class="likes-count pull-right"><%= dish.likes.count %></div>
+      <div>by Sidhra</div>
+    </footer>
+  </div>
+  <% end %>
+</div>
+
+<script>
+  var token = $('meta[name="csrf-token"]').attr('content');
+
+  $('.star').on('click', function(event){
+    var dishId = $(event.target).closest('.ui-card').data('dish-id');
+    // make ajax request Dish.find
+    $.ajax({
+      url: '/api/likes',
+      method: 'post',
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', token)
+      },
+      data: { dish_id: dishId }
+    }).done(function(resp){
+      // on done function update likes count in dom
+      var $likesCount = $(event.target).closest('.ui-card').find('.likes-count');
+      $likesCount.text(resp.likes_count);
+    });
+    // fail(function(){
+    //   console.log('error');
+    // });
+  });
+</script>
