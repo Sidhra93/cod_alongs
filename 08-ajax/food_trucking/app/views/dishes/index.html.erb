@@ -1,3 +1,4 @@
+<a href="/dishes/new">New Dish</a>
 <div class="flex-container">
   <% @dishes.each do |dish| %>
   <div class="ui-card" data-dish-id="<%= dish.id %>">
@@ -6,7 +7,7 @@
       <img class="avatar" src="http://via.placeholder.com/100x100" alt=""> Sidhra
     </header>
     <div class="image-wrapper">
-      <img src="http://via.placeholder.com/800x800">
+      <img src="<%= dish.image.url %>">
       <span class="star">&#9733;</span>
     </div>
     <div class="content">

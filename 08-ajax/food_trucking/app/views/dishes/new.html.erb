@@ -1,0 +1,8 @@
+<form action="/dishes" method="post" enctype="multipart/form-data">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="">Name: </label>
+  <input type="text" name="name"><br>
+  <label for="">Image: </label>
+  <input type="file" name="image" /><br>
+  <button>upload</button>
+</form>
